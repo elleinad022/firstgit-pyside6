@@ -19,7 +19,7 @@ app.exec()
 """
 
 
-#Version 2: Setting up a separate class
+#Version 2: Setting up a separate class!
 """
 import sys
 from PySide6.QtWidgets import QApplication, QMainWindow, QPushButton
