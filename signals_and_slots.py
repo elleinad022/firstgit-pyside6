@@ -17,6 +17,8 @@ button.show()
 app.exec()
 """
 
+
+"""
 #Version 2: Signals sending Values, Capture Values in Slots
 from PySide6.QtWidgets import QApplication, QPushButton
 
@@ -33,4 +35,25 @@ button.setCheckable(True) #Makes the button checkable, its unchecked by default.
 button.clicked.connect(button_clicked)
 
 button.show()
+app.exec()
+"""
+
+#Version 3: Capture Value from a Slider - Other Example
+from PySide6.QtCore import Qt
+from PySide6.QtWidgets import QApplication, QSlider
+
+#The Slot: responds when something happens 
+def respond_to_slider(data):
+    print("Naknampucha, Ginalaw mo yung slider! Eto value: ", data)
+
+app = QApplication()
+slider = QSlider(Qt.Vertical)
+slider.setMinimum(0)
+slider.setMaximum(101)
+slider.setValue(69)
+
+#You just do the connection, the QT system takes care of passing the data from the signal to the slot.
+
+slider.valueChanged.connect(respond_to_slider)
+slider.show()
 app.exec()
