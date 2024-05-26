@@ -1,6 +1,6 @@
 from PySide6.QtCore import QSize
 from PySide6.QtGui import QAction, QIcon
-from PySide6.QtWidgets import QMainWindow, QToolBar, QPushButton
+from PySide6.QtWidgets import QMainWindow, QToolBar, QPushButton, QStatusBar
 
 class MainWindow(QMainWindow):
     def __init__(self, app):
@@ -52,13 +52,21 @@ class MainWindow(QMainWindow):
         toolbar.addSeparator()
         toolbar.addWidget(QPushButton("Click Here"))
 
-        
+        #WORKING WITH STATUS BARS
+        self.setStatusBar(QStatusBar(self))
+
+        button1 = QPushButton("Button sa Gitna")
+        button1.clicked.connect(self.button1_clicked)
+        self.setCentralWidget(button1)
 
 
         
-
+    def button1_clicked(self):
+        print("Pinindot mo yung button sa gitna!")
+    
     def quit_app(self):
         self.app.quit()
     
     def toolbar_button_click(self):
+        self.statusBar().showMessage("Eto mensahe mula sa app", 3000)
         print("action triggered")
